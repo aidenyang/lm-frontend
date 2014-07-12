@@ -1,1 +1,30 @@
-<p>This is the partial for view 1.</p>
+<h3>Status: {{status}}</h3>
+<hr>
+<button ng-show="showButton" ng-click="showForm=true; showButton=false" type="button" class="btn btn-default">
+	Insert a new link?
+</button>
+<form ng-submit="insertLink(author, title, url)" ng-show="showForm" role="form">
+	<div class="form-group">
+		<label for="author">Author</label>
+		<input name="author" type="text" class="form-control" placeholder="Author">
+	</div>
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input name="title" class="form-control" placeholder="Title">
+	</div>
+	<div class="form-group">
+		<label for="url">URL</label>
+		<input name="url" type="text" class=
+		"form-control" placeholder="URL">
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<div class="link" ng-repeat="link in links">
+	<p>{{link.author}}</p>
+	<p>{{link.title}}</p>
+	<button type="button" class="btn btn-default" ng-click="deleteLink(link.id)">
+		delete
+	</button>
+	<hr>
+</div>
