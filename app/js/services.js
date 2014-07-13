@@ -22,8 +22,15 @@ angular.module('myApp.services', []).
   		return $http.delete('http://link-manager.herokuapp.com/links/' + id);
   	}
 
-  	DataFactory.insertLink = function() {
+  	DataFactory.insertLink = function(author, title, url) {
 
+  		var data = {
+  			author: author,
+  			title: title,
+  			url: url,
+  			type: 1
+  		}
+  		return $http.post('http://link-manager.herokuapp.com/links', data);
   	};
   	return DataFactory;
   }]);
